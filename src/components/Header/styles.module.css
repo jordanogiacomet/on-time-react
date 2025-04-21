@@ -1,0 +1,19 @@
+.menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menuLink {
+  color: var(----text-primary);
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.iconsContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}

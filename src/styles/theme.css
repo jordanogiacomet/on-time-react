@@ -1,0 +1,37 @@
+/* themes.css */
+/* Variáveis base inspiradas no design “On Time” */
+
+:root {
+  /* Backgrounds & surfaces */
+  --bg-gradient-start: #141426;
+  --bg-gradient-end: #3c1f7b;
+  --bg-default: var(--bg-gradient-start);
+  --surface-card: #1e1e2d;
+  --surface-alt: #2a2a3f;
+  --bg-active: #272430;
+
+  /* Cores primárias */
+  --color-primary: #6d28d9; /* roxo escuro */
+  --color-primary-light: #a78bfa; /* roxo claro */
+
+  /* Destaques */
+  --color-accent: #e94560; /* vermelho para indicador */
+
+  /* Texto */
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+
+  /* Espaçamentos e transições */
+  --radius: 5px;
+  --transition: 0.3s;
+}
+
+/* Tema claro (se quiser) */
+[data-theme='light'] {
+  --bg-default: #f3f3f3;
+  --surface-card: #ffffff;
+  --surface-alt: #e5e5e5;
+  --text-primary: #222222;
+  --text-secondary: #666666;
+  --color-primary: #5c4fa7;
+}

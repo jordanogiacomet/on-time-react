@@ -1,0 +1,35 @@
+.tabs {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.tabsList {
+  width: 90%;
+  display: flex;
+  background: var(--bg-gradient-end); /* cor de fundo do “track” */
+  border-radius: var(--radius); /* bordas arredondadas */
+  overflow: hidden; /* esconde qualquer canto que exceda */
+  padding: 0.3rem;
+}
+
+.button {
+  flex: 1;
+  text-align: center;
+  padding: 1rem;
+  background: transparent;
+  color: var(--text-primary);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background-color var(--transition), color var(--transition);
+  min-width: 0;
+  font-size: 1.6rem;
+  font-weight: lighter;
+}
+
+.button.active {
+  background-color: var(--bg-active);
+}
