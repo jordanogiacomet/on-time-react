@@ -3,6 +3,7 @@ import { Calendar } from '../Calendar';
 
 import styles from './styles.module.css';
 import { ScheduleCard } from '../ScheduleCard';
+import { FloatingActionButton } from '../FloatingActionButton';
 
 type CardData = {
   id: string;
@@ -57,6 +58,7 @@ export function ScheduleSection() {
           />
         ))}
       </div>
+      <FloatingActionButton href='/schedule/new' />
     </Fragment>
   );
 }
