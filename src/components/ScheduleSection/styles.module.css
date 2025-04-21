@@ -1,0 +1,10 @@
+.scheduleHeading {
+  margin-left: -2rem;
+  margin-bottom: 2rem;
+}
+
+.scheduleCardsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}

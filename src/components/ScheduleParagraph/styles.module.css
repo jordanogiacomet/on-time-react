@@ -1,0 +1,15 @@
+.scheduleParagraph {
+  display: grid;
+  grid-template-columns: 5ch 1fr;
+  column-gap: 1.5rem;
+  align-items: center;
+  margin: 0;
+}
+
+.scheduleLabel {
+  font-weight: bold;
+}
+
+.scheduleValue {
+  min-width: 0;
+}

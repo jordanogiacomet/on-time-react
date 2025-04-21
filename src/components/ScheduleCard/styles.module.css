@@ -1,0 +1,14 @@
+.scheduleCardContainer {
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 1.2rem;
+  background-color: var(--bg-card-active);
+}
+
+.disabled {
+  color: var(--text-secondary);
+  background-color: var(--bg-card-completed);
+}

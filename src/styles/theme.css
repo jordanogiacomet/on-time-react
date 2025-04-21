@@ -8,8 +8,10 @@
   --bg-default: var(--bg-gradient-start);
   --surface-card: #1e1e2d;
   --surface-alt: #2a2a3f;
+  --bg-card-completed: #241641;
   --bg-active: #272430;
   --bg-selected-day: #7e64ff;
+  --bg-card-active: #7c3aed;
 
   /* Cores primárias */
   --color-primary: #6d28d9; /* roxo escuro */

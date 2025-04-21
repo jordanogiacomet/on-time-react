@@ -1,0 +1,20 @@
+.scheduleHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid;
+  font-size: 1.4rem;
+}
+
+.disabled {
+  border-bottom: 1px solid var(--bg-gradient-end);
+}
+
+.title {
+  margin: 0;
+}
+.icon {
+  display: flex;
+}
