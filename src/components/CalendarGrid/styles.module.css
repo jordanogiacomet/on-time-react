@@ -1,0 +1,67 @@
+.calendarGrid {
+  display: flex;
+  flex-direction: column;
+}
+
+.calendarWeekDays {
+  margin-bottom: 1.5rem;
+}
+
+.calendarWeekDays,
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1rem; /* maior gap para espaçamento */
+}
+
+.calendarWeekDay {
+  text-align: center;
+  font-size: 1rem; /* de 0.875rem para 1rem */
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.days .calendarDay,
+.calendarDay {
+  width: 100%;
+  height: 3rem;
+  background: none;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition) 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.days .calendarDay:hover,
+.calendarDay:hover {
+  background: var(--surface-alt);
+}
+
+.disabled {
+  color: var(--text-secondary);
+  opacity: 0.4;
+  cursor: default;
+}
+
+.today {
+  box-shadow: inset 0 0 0 2px var(--color-accent); /* borda mais grossa */
+}
+
+.selected {
+  background: var(--bg-selected-day) !important;
+  color: var(--bg-gradient-end);
+}
+
+/* highlight Sundays in the first column */
+.days > .calendarDay:nth-child(7n + 1) {
+  color: var(--color-accent);
+}

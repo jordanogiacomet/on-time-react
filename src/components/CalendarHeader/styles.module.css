@@ -1,12 +1,27 @@
 .header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 2rem;
+  margin-bottom: 1.5rem; /* aumento do margin-bottom */
 }
 
 .button {
   background: none;
   border: none;
-  color: var(----text-primary);
+  cursor: pointer;
+  color: var(--text-primary);
+  padding: 1rem; /* mais área clicável */
+  border-radius: var(--radius);
+  transition: background var(--transition);
+}
+
+.button:hover {
+  background: var(--surface-alt);
+}
+
+.text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem; /* de 1.25rem para 1.5rem */
+  font-weight: 600;
+  color: var(--text-primary);
 }

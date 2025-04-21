@@ -1,0 +1,7 @@
+.calendarContainer {
+  width: 100%;
+  max-width: 600px; /* aumento do tamanho máximo */
+  margin: 2rem auto;
+  border-radius: var(--radius);
+  padding: 1.5rem; /* mais padding */
+}

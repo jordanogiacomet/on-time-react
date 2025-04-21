@@ -2,17 +2,16 @@ import { Fragment } from 'react/jsx-runtime';
 import { Container } from '../../components/Container';
 import { Header } from '../../components/Header';
 import { Tabs } from '../../components/Tabs';
-import { CalendarHeader } from '../../components/CalendarHeader';
+import { Calendar } from '../../components/Calendar';
+import { useState } from 'react';
 
 export function Home() {
+  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+
   const tabItems = [
     {
       label: 'Schedule',
-      content: (
-        <Container>
-          <CalendarHeader month={Date.now()} />
-        </Container>
-      ),
+      content: <Calendar value={selectedDate} onChange={setSelectedDate} />,
     },
     {
       label: 'Notes',
