@@ -1,12 +1,39 @@
+.inputWrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* só quando houver ícone */
+.withIcon .icon {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* padding padrão sem ícone */
 .input {
   width: 100%;
-  padding: 1rem;
+  padding: 1rem; /* padding uniforme */
   border: none;
   border-radius: var(--radius);
   background-color: var(--bg-input);
   font-size: 1.6rem;
 }
 
+/* quando tiver ícone, aumenta apenas o padding-left */
+.withIcon .input {
+  padding-left: 4.5rem; /* mantém 1rem nos outros lados */
+  border-radius: 20px;
+}
+
+/* placeholder */
 .input::placeholder {
   font-weight: 500;
+  color: var(--text-placeholder);
+}
+
+.icon {
+  color: var(--text-placeholder);
 }

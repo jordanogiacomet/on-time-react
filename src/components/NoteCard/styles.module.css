@@ -1,0 +1,17 @@
+.noteCardContainer {
+  padding: 2rem;
+  background-color: var(--bg-selected-day);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  font-weight: lighter !important;
+}
+
+.description {
+  font-size: 1.4rem;
+}
+
+.date {
+  font-size: 1rem;
+}

@@ -3,6 +3,7 @@ import { Container } from '../../components/Container';
 import { Header } from '../../components/Header';
 import { Tabs } from '../../components/Tabs';
 import { ScheduleSection } from '../../components/ScheduleSection';
+import { NotesSection } from '../../components/NotesSection';
 
 export function Home() {
   const tabItems = [
@@ -12,11 +13,7 @@ export function Home() {
     },
     {
       label: 'Notes',
-      content: (
-        <Container>
-          <div>Notes</div>
-        </Container>
-      ),
+      content: <NotesSection />,
     },
   ];
 

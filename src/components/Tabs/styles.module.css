@@ -6,6 +6,10 @@
   flex-direction: column;
 }
 
+.tabPanel {
+  width: 100%;
+}
+
 .tabsList {
   width: 90%;
   display: flex;
