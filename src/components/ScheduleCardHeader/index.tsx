@@ -1,23 +1,29 @@
-import React from 'react';
 import styles from './styles.module.css';
+import { Square, SquareCheckBig } from 'lucide-react';
 
 type ScheduleCardHeaderProps = {
   title: string;
-  icon: React.ReactNode;
   disabled?: boolean;
+  onToggle: () => void;
 };
 
 export function ScheduleCardHeader({
   title,
-  icon,
   disabled,
+  onToggle,
 }: ScheduleCardHeaderProps) {
   return (
     <div
       className={`${styles.scheduleHeader} ${disabled ? styles.disabled : ''}`}
     >
       <h3 className={styles.title}>{title}</h3>
-      {icon}
+      <button
+        onClick={onToggle}
+        type='button'
+        aria-label={disabled ? 'Marcar como pendente' : 'Marcar como concluído'}
+      >
+        {!disabled ? <Square size={20} /> : <SquareCheckBig size={20} />}
+      </button>
     </div>
   );
 }

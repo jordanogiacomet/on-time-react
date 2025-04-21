@@ -8,6 +8,12 @@
   font-size: 1.4rem;
 }
 
+.scheduleHeader button {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+}
+
 .disabled {
   border-bottom: 1px solid var(--bg-gradient-end);
 }

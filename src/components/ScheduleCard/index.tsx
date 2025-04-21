@@ -1,18 +1,39 @@
+import { ScheduleCardHeader } from '../ScheduleCardHeader';
+import { ScheduleParagraph } from '../ScheduleParagraph';
 import styles from './styles.module.css';
 
 type ScheduleCardProps = {
-  children: React.ReactNode;
-  disabled?: boolean;
+  title: string;
+  time: string;
+  place: string;
+  notes: string;
+  disabled: boolean;
+  onToggle: () => void;
 };
 
-export function ScheduleCard({ children, disabled }: ScheduleCardProps) {
+export function ScheduleCard({
+  title,
+  time,
+  place,
+  notes,
+  disabled,
+  onToggle,
+}: ScheduleCardProps) {
   return (
     <div
       className={`${styles.scheduleCardContainer} ${
         disabled ? styles.disabled : ''
       }`}
     >
-      {children}
+      <ScheduleCardHeader
+        title={title}
+        disabled={disabled}
+        onToggle={onToggle}
+      />
+
+      <ScheduleParagraph type='Time' value={time} />
+      <ScheduleParagraph type='Place' value={place} />
+      <ScheduleParagraph type='Notes' value={notes} />
     </div>
   );
 }
