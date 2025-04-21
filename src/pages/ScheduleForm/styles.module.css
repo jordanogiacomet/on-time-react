@@ -1,0 +1,43 @@
+.formNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menuLink {
+  color: var(--text-primary);
+}
+
+.iconsContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.scheduleFormContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.title {
+  font-size: 1.6rem;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.formRow {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2.4rem;
+}
