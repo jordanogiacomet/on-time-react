@@ -19,3 +19,7 @@ body {
   background-size: cover; /* cobre 100% largura × 100% altura */
   color: var(--text-primary);
 }
+
+.notes-new-bg {
+  background: var(--bg-selected-day) !important;
+}

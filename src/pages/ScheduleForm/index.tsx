@@ -16,6 +16,10 @@ export function ScheduleForm() {
   const [startDate, setStartDate] = useState<Date>(new Date());
   const [endDate, setEndDate] = useState<Date>(new Date());
 
+  const [title, setTitle] = useState<string>('');
+  const [place, setPlace] = useState<string>('');
+  const [note, setNote] = useState<string>('');
+
   const repeatOptions = [
     { value: 'once', label: 'One time' },
     { value: 'daily', label: 'Daily' },
@@ -42,14 +46,23 @@ export function ScheduleForm() {
               </RouterLink>
               <div className={styles.iconsContainer}>
                 <SquareCheckBig />
-                <Check />
+                <button className={styles.formButton} type='button'>
+                  {' '}
+                  <Check />
+                </button>
               </div>
             </nav>
           </header>
           <h2 className={styles.title}>Schedule</h2>
           <form className={styles.form}>
             <div className={styles.formRow}>
-              <TextInput id='titleInput' type='text' placeholder='Title' />
+              <TextInput
+                value={title}
+                onChange={e => setTitle(e.target.value)}
+                id='titleInput'
+                type='text'
+                placeholder='Title'
+              />
             </div>
             <div className={styles.formRow}>
               <ToggleSwitch
@@ -89,10 +102,22 @@ export function ScheduleForm() {
               />
             </div>
             <div className={styles.formRow}>
-              <TextInput id='placeInput' type='text' placeholder='Place' />
+              <TextInput
+                value={place}
+                onChange={e => setPlace(e.target.value)}
+                id='placeInput'
+                type='text'
+                placeholder='Place'
+              />
             </div>
             <div className={styles.formRow}>
-              <TextInput id='NotesInput' type='text' placeholder='Notes' />
+              <TextInput
+                value={note}
+                onChange={e => setNote(e.target.value)}
+                id='NotesInput'
+                type='text'
+                placeholder='Notes'
+              />
             </div>
           </form>
         </div>
