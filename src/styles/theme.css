@@ -25,6 +25,8 @@
   --text-primary: #ffffff;
   --text-secondary: #b0b0b0;
   --text-placeholder: #828282;
+  --text-placeholder: #828282;
+  --border-notification: rgba(130, 130, 130, 0.5);
 
   /* Espaçamentos e transições */
   --radius: 5px;

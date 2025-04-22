@@ -16,7 +16,9 @@ export function Header() {
           on.time
         </RouterLink>
         <div className={styles.iconsContainer}>
-          <BellDot />
+          <RouterLink className={styles.menuLink} href='/notifications/'>
+            <BellDot />
+          </RouterLink>
           <EllipsisVertical />
         </div>
       </nav>

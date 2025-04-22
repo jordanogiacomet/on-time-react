@@ -31,7 +31,7 @@
   transition: background-color var(--transition), color var(--transition);
   min-width: 0;
   font-size: 1.6rem;
-  font-weight: lighter;
+  font-weight: bold;
 }
 
 .button.active {

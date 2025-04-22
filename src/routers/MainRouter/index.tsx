@@ -3,6 +3,7 @@ import { Splash } from '../../components/Splash';
 import { Home } from '../../pages/Home';
 import { ScheduleForm } from '../../pages/ScheduleForm';
 import { NotesForm } from '../../pages/NotesForm';
+import { Notifications } from '../../pages/Notifications';
 
 export function MainRouter() {
   return (
@@ -12,6 +13,7 @@ export function MainRouter() {
         <Route path='/home/' element={<Home />} />
         <Route path='/schedule/new' element={<ScheduleForm />} />
         <Route path='/notes/new' element={<NotesForm />} />
+        <Route path='/notifications' element={<Notifications />} />
       </Routes>
     </BrowserRouter>
   );
