@@ -1,0 +1,47 @@
+.settingsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.menuLink {
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.6rem;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.settingsItensContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.settingsOption {
+  padding-bottom: 2rem;
+  font-size: 1.8rem;
+  border-bottom: 1px solid var(--border-notification);
+}
+
+.itemContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  font-size: 1.4rem;
+}
+
+.bar {
+  font-size: 1.4rem;
+}

@@ -10,7 +10,7 @@ export function Notifications() {
     <Fragment>
       <Container>
         <div className={styles.notificationsContainer}>
-          <header className={styles.formHeader}>
+          <header className={styles.notificationsHeader}>
             <nav className={styles.formNav}>
               <RouterLink href='/home/' className={styles.menuLink}>
                 <ArrowLeft />

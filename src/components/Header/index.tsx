@@ -19,7 +19,9 @@ export function Header() {
           <RouterLink className={styles.menuLink} href='/notifications/'>
             <BellDot />
           </RouterLink>
-          <EllipsisVertical />
+          <RouterLink className={styles.menuLink} href='/settings/'>
+            <EllipsisVertical />
+          </RouterLink>
         </div>
       </nav>
     </header>
