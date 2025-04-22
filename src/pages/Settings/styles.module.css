@@ -45,3 +45,9 @@
 .bar {
   font-size: 1.4rem;
 }
+
+.anchor {
+  font-size: 1.4rem;
+  color: var(--text-primary);
+  text-decoration: none;
+}

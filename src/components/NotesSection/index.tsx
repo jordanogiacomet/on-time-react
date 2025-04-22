@@ -19,7 +19,7 @@ export function NotesSection() {
         <NoteCard />
         <NoteCard />
       </div>
-      <FloatingActionButton href='/notes/new' />
+      <FloatingActionButton />
     </Fragment>
   );
 }

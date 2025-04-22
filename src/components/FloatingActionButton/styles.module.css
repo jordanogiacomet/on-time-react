@@ -1,7 +1,25 @@
-.fab {
+/* styles.module.css */
+
+/* wrapper que posiciona tudo no canto */
+.fabContainer {
   position: fixed;
   bottom: 1.5rem;
   right: 1.5rem;
+  display: flex;
+  flex-direction: column; /* inverte a ordem para o FAB ficar embaixo */
+  align-items: center;
+  gap: 1rem;
+  z-index: 100;
+}
+
+/* estado “aberto” ativa a animação dos filhos */
+.open .fabChild {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+/* botão principal */
+.fab {
   width: 4rem;
   height: 4rem;
   background-color: var(--color-primary);
@@ -11,24 +29,55 @@
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
-  text-decoration: none;
-  transition: background-color var(--transition), transform var(--transition),
-    box-shadow var(--transition);
-  z-index: 100; /* acima de tudo */
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s,
+    background-color var(--transition);
 }
 
 .fab:hover {
-  background-color: var(--color-primary-light);
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
 }
-
 .fab:active {
   transform: translateY(0);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
-.fab:focus {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
+/* botões filhos inicialmente escondidos */
+.fabChild {
+  width: 3.5rem;
+  height: 3.5rem;
+  background-color: var(--color-secondary);
+  color: var(--text-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  position: relative;
+  transform: scale(0) translateY(10px);
+  opacity: 0;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+/* rótulo ao lado do ícone */
+.fabLabel {
+  position: absolute;
+  right: 4rem;
+  white-space: nowrap;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.4rem;
+  font-size: 1.4rem;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+/* quando aberto, mostra também o label */
+.open .fabChild .fabLabel {
+  opacity: 1;
+  transform: translateX(0);
 }

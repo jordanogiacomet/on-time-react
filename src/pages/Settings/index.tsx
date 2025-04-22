@@ -38,8 +38,12 @@ export function Settings() {
             <div className={styles.item}>
               <p className={styles.settingsOption}>Extras</p>
               <div className={styles.itemContent}>
-                <p>Help</p>
-                <p>About</p>
+                <RouterLink className={styles.anchor} href='/help/'>
+                  Help
+                </RouterLink>
+                <RouterLink className={styles.anchor} href='/about/'>
+                  About
+                </RouterLink>
               </div>
             </div>
           </div>

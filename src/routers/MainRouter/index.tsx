@@ -5,6 +5,8 @@ import { ScheduleForm } from '../../pages/ScheduleForm';
 import { NotesForm } from '../../pages/NotesForm';
 import { Notifications } from '../../pages/Notifications';
 import { Settings } from '../../pages/Settings';
+import { Help } from '../../pages/Help';
+import { About } from '../../pages/About';
 
 export function MainRouter() {
   return (
@@ -16,6 +18,8 @@ export function MainRouter() {
         <Route path='/notes/new' element={<NotesForm />} />
         <Route path='/notifications' element={<Notifications />} />
         <Route path='/settings/' element={<Settings />} />
+        <Route path='/help/' element={<Help />} />
+        <Route path='/about/' element={<About />} />
       </Routes>
     </BrowserRouter>
   );

@@ -58,7 +58,7 @@ export function ScheduleSection() {
           />
         ))}
       </div>
-      <FloatingActionButton href='/schedule/new' />
+      <FloatingActionButton />
     </Fragment>
   );
 }
