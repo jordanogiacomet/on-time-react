@@ -35,13 +35,16 @@ export function NotesForm() {
 
           <form className={styles.form}>
             <div className={styles.formRow}>
-              <TextInput
-                className={styles.input}
-                value={title}
-                onChange={e => setTitle(e.target.value)}
-                id='noteInput'
-                placeholder='Title'
-              />
+              <TextInput.Root>
+                <TextInput.Element
+                  className={styles.input}
+                  id='titleInput'
+                  type='text'
+                  placeholder='Title'
+                  value={title}
+                  onChange={e => setTitle(e.target.value)}
+                />
+              </TextInput.Root>
             </div>
             <div className={styles.formRow}>
               <textarea

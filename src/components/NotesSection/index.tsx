@@ -1,20 +1,22 @@
 import { Search } from 'lucide-react';
-import { TextInput } from '../TextInput';
-import styles from './styles.module.css';
 import { FloatingActionButton } from '../FloatingActionButton';
 import { NoteCard } from '../NoteCard';
 import { Fragment } from 'react/jsx-runtime';
+import { TextInput } from '../TextInput';
+import styles from './styles.module.css';
 
 export function NotesSection() {
   return (
     <Fragment>
       <div className={styles.notesContainer}>
-        <TextInput
-          id='search'
-          type='text'
-          placeholder='Search note'
-          icon={<Search size={20} />}
-        />
+        <TextInput.Root>
+          <TextInput.Icon icon={Search} />
+          <TextInput.Element
+            type='search'
+            placeholder='Search'
+            id='searchInput'
+          />
+        </TextInput.Root>
         <NoteCard />
         <NoteCard />
         <NoteCard />

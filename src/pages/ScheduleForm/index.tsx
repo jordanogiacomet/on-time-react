@@ -56,13 +56,15 @@ export function ScheduleForm() {
           <h2 className={styles.title}>Schedule</h2>
           <form className={styles.form}>
             <div className={styles.formRow}>
-              <TextInput
-                value={title}
-                onChange={e => setTitle(e.target.value)}
-                id='titleInput'
-                type='text'
-                placeholder='Title'
-              />
+              <TextInput.Root>
+                <TextInput.Element
+                  id='titleInput'
+                  type='text'
+                  placeholder='Title'
+                  value={title}
+                  onChange={e => setTitle(e.target.value)}
+                />
+              </TextInput.Root>
             </div>
             <div className={styles.formRow}>
               <ToggleSwitch
@@ -102,22 +104,26 @@ export function ScheduleForm() {
               />
             </div>
             <div className={styles.formRow}>
-              <TextInput
-                value={place}
-                onChange={e => setPlace(e.target.value)}
-                id='placeInput'
-                type='text'
-                placeholder='Place'
-              />
+              <TextInput.Root>
+                <TextInput.Element
+                  id='placeInput'
+                  type='text'
+                  placeholder='Place'
+                  value={place}
+                  onChange={e => setPlace(e.target.value)}
+                />
+              </TextInput.Root>
             </div>
             <div className={styles.formRow}>
-              <TextInput
-                value={note}
-                onChange={e => setNote(e.target.value)}
-                id='NotesInput'
-                type='text'
-                placeholder='Notes'
-              />
+              <TextInput.Root>
+                <TextInput.Element
+                  id='noteInput'
+                  type='text'
+                  placeholder='Notes'
+                  value={note}
+                  onChange={e => setNote(e.target.value)}
+                />
+              </TextInput.Root>
             </div>
           </form>
         </div>
