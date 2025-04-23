@@ -15,7 +15,7 @@ export function ScheduleContextProvider({
     scheduleReducer,
     initialScheduleState,
     () => {
-      const storageState = localStorage.getItem('state');
+      const storageState = localStorage.getItem('schedule');
 
       if (!storageState) return initialScheduleState;
 
@@ -28,7 +28,7 @@ export function ScheduleContextProvider({
   );
 
   useEffect(() => {
-    localStorage.setItem('state', JSON.stringify(state));
+    localStorage.setItem('schedule', JSON.stringify(state));
   }, [state]);
 
   return (

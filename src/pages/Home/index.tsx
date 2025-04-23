@@ -5,8 +5,20 @@ import { Tabs } from '../../components/Tabs';
 import { ScheduleSection } from '../../components/ScheduleSection';
 import { NotesSection } from '../../components/NotesSection';
 import { BellDotIcon, EllipsisVertical } from 'lucide-react';
+import { useSearchParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 export function Home() {
+  const [search, setSearch] = useSearchParams();
+
+  const initialTabIndex = search.get('tab') === 'notes' ? 1 : 0;
+  const [selectedIndex, setSelectedIndex] = useState<number>(initialTabIndex);
+
+  useEffect(() => {
+    const tabParam = selectedIndex === 0 ? 'schedule' : 'notes';
+    setSearch({ tab: tabParam }, { replace: true });
+  }, [selectedIndex, setSearch]);
+
   const tabItems = [
     {
       label: 'Schedule',
@@ -32,7 +44,11 @@ export function Home() {
         </Header.Root>
       </Container>
       <Container>
-        <Tabs tabs={tabItems} />
+        <Tabs
+          tabs={tabItems}
+          selectedIndex={selectedIndex}
+          onSelect={setSelectedIndex}
+        />
       </Container>
     </Fragment>
   );

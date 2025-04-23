@@ -6,8 +6,26 @@ type Tab = {
   content: React.ReactNode;
 };
 
-export function Tabs({ tabs }: { tabs: Tab[] }) {
-  const [active, setActive] = useState(0);
+type TabsProps = {
+  tabs: Tab[];
+  selectedIndex?: number;
+  onSelect?: (index: number) => void;
+};
+
+export function Tabs({ tabs, selectedIndex, onSelect }: TabsProps) {
+  const [internalIndex, setInternalIndex] = useState(0);
+
+  // define qual índice está ativo
+  const active = selectedIndex ?? internalIndex;
+
+  function handleClick(index: number) {
+    if (onSelect) {
+      onSelect(index);
+    } else {
+      setInternalIndex(index);
+    }
+  }
+
   return (
     <div className={styles.tabs}>
       <div role='tablist' className={styles.tabsList}>
@@ -17,9 +35,9 @@ export function Tabs({ tabs }: { tabs: Tab[] }) {
             role='tab'
             aria-selected={active === index}
             className={`${styles.button} ${
-              active === index ? `${styles.active}` : ''
+              active === index ? styles.active : ''
             }`}
-            onClick={() => setActive(index)}
+            onClick={() => handleClick(index)}
           >
             {tab.label}
           </button>

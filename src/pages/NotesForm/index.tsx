@@ -56,7 +56,7 @@ export function NotesForm() {
 
     dispatch({ type: NoteActionTypes.SUBMIT_NOTE, payload: newNote });
     showMessage.success('Note saved with success!');
-    navigate('/home');
+    navigate('/home?tab=notes');
   }
 
   useEffect(() => {
@@ -72,7 +72,7 @@ export function NotesForm() {
         <div className={styles.notesFormContainer}>
           <Header.Root>
             <Header.Nav>
-              <Header.Link icon={ArrowLeft} href='/home/' />
+              <Header.Link icon={ArrowLeft} href='/home?tab=notes' />
               <Header.Icons>
                 <Header.Action
                   type='submit'

@@ -85,7 +85,7 @@ export function ScheduleForm() {
       payload: newSchedule,
     });
     showMessage.success('Schedule saved with success');
-    navigate('/home');
+    navigate('/home?tab=schedule');
   }
 
   return (
@@ -94,7 +94,7 @@ export function ScheduleForm() {
         <div className={styles.scheduleFormContainer}>
           <Header.Root>
             <Header.Nav>
-              <Header.Link icon={ArrowLeft} href='/home/' />
+              <Header.Link icon={ArrowLeft} href='/home?tab=schedule' />
               <Header.Icons>
                 <Header.Action
                   type='button'
