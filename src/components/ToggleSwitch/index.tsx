@@ -5,6 +5,7 @@ type ToggleSwitchProps = {
   onChange: (checked: boolean) => void;
   label?: string;
   className?: string;
+  id: string;
 };
 
 export function ToggleSwitch({
@@ -12,6 +13,7 @@ export function ToggleSwitch({
   onChange,
   label,
   className,
+  id,
 }: ToggleSwitchProps) {
   return (
     <label className={styles.wrapper}>
@@ -21,6 +23,7 @@ export function ToggleSwitch({
         </span>
       )}
       <input
+        id={id}
         type='checkbox'
         className={styles.input}
         checked={checked}

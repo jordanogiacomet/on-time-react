@@ -18,6 +18,7 @@ import {
 } from '../../models/ScheduleModel';
 import { ScheduleActionTypes } from '../../contexts/ScheduleContext/scheduleActions';
 import { useNavigate } from 'react-router-dom';
+import { showMessage } from '../../adapters/showMessage';
 
 export function ScheduleForm() {
   const { dispatch } = useScheduleContext();
@@ -38,20 +39,24 @@ export function ScheduleForm() {
   }
 
   function handleCreateNewSchedule(event: React.FormEvent<HTMLFormElement>) {
+    showMessage.dismiss();
     event.preventDefault();
-    console.log('Formulario');
 
     if (!scheduleNameInput.current) return;
 
     const scheduleName = scheduleNameInput.current.value.trim();
+
     if (!scheduleName) {
+      showMessage.warn('Write the name of the schedule!');
       return;
     }
 
     if (!schedulePlaceInput.current) return;
 
     const schedulePlace = schedulePlaceInput.current.value.trim();
+
     if (!schedulePlace) {
+      showMessage.warn('Write the place of the schedule!');
       return;
     }
 
@@ -76,6 +81,7 @@ export function ScheduleForm() {
     };
 
     dispatch({ type: ScheduleActionTypes.SUBMIT_FORM, payload: newSchedule });
+    showMessage.success('Schedule saved with success');
     navigate('/home');
   }
 
@@ -118,6 +124,7 @@ export function ScheduleForm() {
             </div>
             <div className={styles.formRow}>
               <ToggleSwitch
+                id='toggleInputDay'
                 checked={fullDay}
                 onChange={handleToggleSwith}
                 label='Fullday'
@@ -151,6 +158,7 @@ export function ScheduleForm() {
             </div>
             <div className={styles.formRow}>
               <ToggleSwitch
+                id='toggleInputReminder'
                 checked={reminder.enabled}
                 onChange={enabled => {
                   if (enabled) {
