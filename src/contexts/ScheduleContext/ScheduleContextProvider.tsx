@@ -2,7 +2,7 @@ import React, { useEffect, useReducer } from 'react';
 import { scheduleReducer } from './scheduleReducer';
 import { initialScheduleState } from './initialScheduleState';
 import { ScheduleContext } from './ScheduleContext';
-import { ScheduleStateModel } from '../../models/ScheduleStateModel';
+import { ScheduleStateModel } from '../../models/Schedule/ScheduleStateModel';
 
 type ScheduleContextProviderProps = {
   children: React.ReactNode;

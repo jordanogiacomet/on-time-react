@@ -1,5 +1,5 @@
 import React, { createContext } from 'react';
-import { ScheduleStateModel } from '../../models/ScheduleStateModel';
+import { ScheduleStateModel } from '../../models/Schedule/ScheduleStateModel';
 import { ScheduleActionModel } from './scheduleActions';
 import { initialScheduleState } from './initialScheduleState';
 

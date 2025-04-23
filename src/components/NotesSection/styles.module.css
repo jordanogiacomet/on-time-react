@@ -5,3 +5,15 @@
   width: 100%;
   margin: 3rem 0;
 }
+
+.messageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  font-size: 1.2rem;
+  background: var(--bg-card-bottom);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+  border-radius: 12px;
+  margin: 3.5rem;
+}

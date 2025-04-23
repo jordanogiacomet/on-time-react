@@ -15,7 +15,7 @@ import {
   ReminderOffset,
   RepeatOption,
   ScheduleModel,
-} from '../../models/ScheduleModel';
+} from '../../models/Schedule/ScheduleModel';
 import { ScheduleActionTypes } from '../../contexts/ScheduleContext/scheduleActions';
 import { useNavigate } from 'react-router-dom';
 import { showMessage } from '../../adapters/showMessage';
@@ -80,7 +80,10 @@ export function ScheduleForm() {
       repeat,
     };
 
-    dispatch({ type: ScheduleActionTypes.SUBMIT_FORM, payload: newSchedule });
+    dispatch({
+      type: ScheduleActionTypes.SUBMIT_SCHEDULE,
+      payload: newSchedule,
+    });
     showMessage.success('Schedule saved with success');
     navigate('/home');
   }

@@ -4,8 +4,12 @@ import { NoteCard } from '../NoteCard';
 import { Fragment } from 'react/jsx-runtime';
 import { TextInput } from '../TextInput';
 import styles from './styles.module.css';
+import { useNoteContext } from '../../contexts/NoteContext/useNoteContext';
 
 export function NotesSection() {
+  const { state } = useNoteContext();
+  const notesLength = state.notes.length;
+
   return (
     <Fragment>
       <div className={styles.notesContainer}>
@@ -17,9 +21,14 @@ export function NotesSection() {
             id='searchInput'
           />
         </TextInput.Root>
-        <NoteCard />
-        <NoteCard />
-        <NoteCard />
+        {state.notes.map(note => (
+          <NoteCard description={note.description} date={note.dateFormatted} />
+        ))}
+        {notesLength <= 0 && (
+          <div className={styles.messageContainer}>
+            <p className={styles.message}>You Didn’t Have Any Notes.</p>
+          </div>
+        )}
       </div>
       <FloatingActionButton />
     </Fragment>

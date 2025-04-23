@@ -1,4 +1,4 @@
-import { ScheduleStateModel } from '../../models/ScheduleStateModel';
+import { ScheduleStateModel } from '../../models/Schedule/ScheduleStateModel';
 import { ScheduleActionModel, ScheduleActionTypes } from './scheduleActions';
 
 export function scheduleReducer(
@@ -16,7 +16,7 @@ export function scheduleReducer(
         ),
       };
     }
-    case ScheduleActionTypes.SUBMIT_FORM: {
+    case ScheduleActionTypes.SUBMIT_SCHEDULE: {
       const newSchedule = action.payload;
       return {
         ...state,

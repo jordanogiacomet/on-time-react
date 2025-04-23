@@ -1,14 +1,14 @@
-import { ScheduleModel } from '../../models/ScheduleModel';
+import { ScheduleModel } from '../../models/Schedule/ScheduleModel';
 
 export enum ScheduleActionTypes {
   TOGGLE_SCHEDULE = 'TOGGLE_SCHEDULE',
-  SUBMIT_FORM = 'SUBMIT_FORM',
+  SUBMIT_SCHEDULE = 'SUBMIT_SCHEDULE',
   DELETE_SCHEDULE = 'DELETE_SCHEDULE',
 }
 
 export type ScheduleActionWithPayload =
   | {
-      type: ScheduleActionTypes.SUBMIT_FORM;
+      type: ScheduleActionTypes.SUBMIT_SCHEDULE;
       payload: ScheduleModel;
     }
   | {
