@@ -1,10 +1,10 @@
 import { Fragment } from 'react/jsx-runtime';
 import { Container } from '../../components/Container';
 import styles from './styles.module.css';
-import { RouterLink } from '../../components/RouterLink';
 import { ArrowLeft, EllipsisVertical, Pin } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { TextInput } from '../../components/TextInput';
+import { Header } from '../../components/Header';
 
 export function NotesForm() {
   const [title, setTitle] = useState<string>('');
@@ -21,17 +21,15 @@ export function NotesForm() {
     <Fragment>
       <Container>
         <div className={styles.notesFormContainer}>
-          <header className={styles.formHeader}>
-            <nav className={styles.formNav}>
-              <RouterLink href='/home/' className={styles.menuLink}>
-                <ArrowLeft />
-              </RouterLink>
-              <div className={styles.iconsContainer}>
-                <Pin />
-                <EllipsisVertical />
-              </div>
-            </nav>
-          </header>
+          <Header.Root>
+            <Header.Nav>
+              <Header.Link icon={ArrowLeft} href='/home/' />
+              <Header.Icons>
+                <Header.Action type='button' onClick={() => {}} icon={Pin} />
+                <Header.Link icon={EllipsisVertical} href='/settings/' />
+              </Header.Icons>
+            </Header.Nav>
+          </Header.Root>
 
           <form className={styles.form}>
             <div className={styles.formRow}>

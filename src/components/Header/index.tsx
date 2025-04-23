@@ -1,29 +1,13 @@
-import { BellDot, EllipsisVertical } from 'lucide-react';
-import { RouterLink } from '../RouterLink';
+import { HeaderIcons } from './HeaderIcons';
+import { HeaderLink } from './HeaderLink';
+import { HeaderRoot } from './HeaderRoot';
+import { HeaderNav } from './HeaderNav';
+import { HeaderAction } from './HeaderAction';
 
-import styles from './styles.module.css';
-
-export function Header() {
-  return (
-    <header className={styles.header}>
-      <nav className={styles.menu}>
-        <RouterLink
-          aria-label='Go to home'
-          title='Go to home'
-          className={styles.menuLink}
-          href='/'
-        >
-          on.time
-        </RouterLink>
-        <div className={styles.iconsContainer}>
-          <RouterLink className={styles.menuLink} href='/notifications/'>
-            <BellDot />
-          </RouterLink>
-          <RouterLink className={styles.menuLink} href='/settings/'>
-            <EllipsisVertical />
-          </RouterLink>
-        </div>
-      </nav>
-    </header>
-  );
-}
+export const Header = {
+  Root: HeaderRoot,
+  Nav: HeaderNav,
+  Link: HeaderLink,
+  Icons: HeaderIcons,
+  Action: HeaderAction,
+};

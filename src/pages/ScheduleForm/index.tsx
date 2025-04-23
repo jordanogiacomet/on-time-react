@@ -1,5 +1,4 @@
 import { ArrowLeft, Check, SquareCheckBig } from 'lucide-react';
-import { RouterLink } from '../../components/RouterLink';
 
 import styles from './styles.module.css';
 import { Fragment } from 'react/jsx-runtime';
@@ -9,6 +8,7 @@ import { ToggleSwitch } from '../../components/ToggleSwitch';
 import { useState } from 'react';
 import { DateTimeRow } from '../../components/DataTimeRow';
 import { SelectInput } from '../../components/SelectInput';
+import { Header } from '../../components/Header';
 
 export function ScheduleForm() {
   const [allDay, setAllDay] = useState(false);
@@ -39,20 +39,19 @@ export function ScheduleForm() {
     <Fragment>
       <Container>
         <div className={styles.scheduleFormContainer}>
-          <header className={styles.formHeader}>
-            <nav className={styles.formNav}>
-              <RouterLink href='/home/' className={styles.menuLink}>
-                <ArrowLeft />
-              </RouterLink>
-              <div className={styles.iconsContainer}>
-                <SquareCheckBig />
-                <button className={styles.formButton} type='button'>
-                  {' '}
-                  <Check />
-                </button>
-              </div>
-            </nav>
-          </header>
+          <Header.Root>
+            <Header.Nav>
+              <Header.Link icon={ArrowLeft} href='/home/' />
+              <Header.Icons>
+                <Header.Action
+                  type='button'
+                  onClick={() => {}}
+                  icon={SquareCheckBig}
+                />
+                <Header.Action type='button' onClick={() => {}} icon={Check} />
+              </Header.Icons>
+            </Header.Nav>
+          </Header.Root>
           <h2 className={styles.title}>Schedule</h2>
           <form className={styles.form}>
             <div className={styles.formRow}>

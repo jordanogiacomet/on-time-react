@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { Splash } from '../../components/Splash';
 import { Home } from '../../pages/Home';
 import { ScheduleForm } from '../../pages/ScheduleForm';
@@ -7,6 +7,17 @@ import { Notifications } from '../../pages/Notifications';
 import { Settings } from '../../pages/Settings';
 import { Help } from '../../pages/Help';
 import { About } from '../../pages/About';
+import { useEffect } from 'react';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [pathname]);
+
+  return null;
+}
 
 export function MainRouter() {
   return (
@@ -21,6 +32,7 @@ export function MainRouter() {
         <Route path='/help/' element={<Help />} />
         <Route path='/about/' element={<About />} />
       </Routes>
+      <ScrollToTop />
     </BrowserRouter>
   );
 }

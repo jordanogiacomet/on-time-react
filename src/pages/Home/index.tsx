@@ -4,6 +4,7 @@ import { Header } from '../../components/Header';
 import { Tabs } from '../../components/Tabs';
 import { ScheduleSection } from '../../components/ScheduleSection';
 import { NotesSection } from '../../components/NotesSection';
+import { BellDotIcon, EllipsisVertical } from 'lucide-react';
 
 export function Home() {
   const tabItems = [
@@ -20,7 +21,15 @@ export function Home() {
   return (
     <Fragment>
       <Container>
-        <Header />
+        <Header.Root>
+          <Header.Nav>
+            <Header.Link text='on.time' href='/' />
+            <Header.Icons>
+              <Header.Link icon={BellDotIcon} href='/notifications/' />
+              <Header.Link icon={EllipsisVertical} href='/settings/' />
+            </Header.Icons>
+          </Header.Nav>
+        </Header.Root>
       </Container>
       <Container>
         <Tabs tabs={tabItems} />
