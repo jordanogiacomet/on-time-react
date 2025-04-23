@@ -5,10 +5,15 @@ import { Fragment } from 'react/jsx-runtime';
 import { TextInput } from '../TextInput';
 import styles from './styles.module.css';
 import { useNoteContext } from '../../contexts/NoteContext/useNoteContext';
+import { NoteActionTypes } from '../../contexts/NoteContext/noteActions';
 
 export function NotesSection() {
-  const { state } = useNoteContext();
+  const { state, dispatch } = useNoteContext();
   const notesLength = state.notes.length;
+
+  function togglePin(id: number) {
+    dispatch({ type: NoteActionTypes.TOGGLE_PIN, payload: { id } });
+  }
 
   return (
     <Fragment>
@@ -22,7 +27,13 @@ export function NotesSection() {
           />
         </TextInput.Root>
         {state.notes.map(note => (
-          <NoteCard description={note.description} date={note.dateFormatted} />
+          <NoteCard
+            key={note.id}
+            onTogglePin={() => togglePin(note.id)}
+            hasPin={note.pin}
+            description={note.description}
+            date={note.dateFormatted}
+          />
         ))}
         {notesLength <= 0 && (
           <div className={styles.messageContainer}>

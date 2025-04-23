@@ -1,8 +1,8 @@
 import { Fragment } from 'react/jsx-runtime';
 import { Container } from '../../components/Container';
 import styles from './styles.module.css';
-import { ArrowLeft, Check, EllipsisVertical, Pin } from 'lucide-react';
-import React, { useEffect, useRef } from 'react';
+import { ArrowLeft, Check, EllipsisVertical, Pin, PinOff } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
 import { TextInput } from '../../components/TextInput';
 import { Header } from '../../components/Header';
 import { TextArea } from '../../components/TextArea';
@@ -21,6 +21,11 @@ export function NotesForm() {
   const formRef = useRef<HTMLFormElement>(null);
   const noteTitleInput = useRef<HTMLInputElement>(null);
   const noteDescriptionTextArea = useRef<HTMLTextAreaElement>(null);
+  const [pin, setPin] = useState<boolean>(true);
+
+  function handlePin() {
+    setPin(prevState => !prevState);
+  }
 
   function handleCreateNewNote(event: React.FormEvent<HTMLFormElement>) {
     showMessage.dismiss();
@@ -47,7 +52,7 @@ export function NotesForm() {
 
     const newNote: NoteModel = {
       id: Date.now(),
-      pin: false,
+      pin: pin,
       title: noteTitle,
       description: noteDescription,
       date,
@@ -79,7 +84,11 @@ export function NotesForm() {
                   onClick={() => formRef.current?.requestSubmit()}
                   icon={Check}
                 />
-                <Header.Action type='button' onClick={() => {}} icon={Pin} />
+                <Header.Action
+                  type='button'
+                  onClick={handlePin}
+                  icon={pin ? Pin : PinOff}
+                />
                 <Header.Link icon={EllipsisVertical} href='/settings/' />
               </Header.Icons>
             </Header.Nav>
