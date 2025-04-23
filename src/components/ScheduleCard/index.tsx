@@ -6,7 +6,7 @@ type ScheduleCardProps = {
   title: string;
   time: string;
   place: string;
-  notes: string;
+  notes?: string;
   disabled: boolean;
   onToggle: () => void;
 };
@@ -33,7 +33,11 @@ export function ScheduleCard({
 
       <ScheduleParagraph type='Time' value={time} />
       <ScheduleParagraph type='Place' value={place} />
-      <ScheduleParagraph type='Notes' value={notes} />
+      {notes ? (
+        <ScheduleParagraph type='Notes' value={notes} />
+      ) : (
+        <ScheduleParagraph type='Notes' value={'Nothing'} />
+      )}
     </div>
   );
 }

@@ -14,6 +14,8 @@
   --bg-card-active: #7c3aed;
   --bg-input: #ccc2fe;
 
+  --bg-card-bottom: rgb(47, 10, 46);
+
   /* Cores primárias */
   --color-primary: #6d28d9; /* roxo escuro */
   --color-primary-light: #a78bfa; /* roxo claro */
