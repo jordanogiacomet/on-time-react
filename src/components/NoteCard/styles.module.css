@@ -30,7 +30,8 @@
   background: transparent;
   border: none;
   padding: 0.25rem;
-  opacity: 0;
+  color: var(--text-primary);
+  opacity: 0.4;
   transition: opacity 0.2s;
   cursor: pointer;
 }
@@ -38,9 +39,4 @@
 .pinButton.pinned {
   opacity: 1;
   color: var(--text-primary);
-}
-
-.noteCardContainer:hover .pinButton:not(.pinned) {
-  color: var(--text-primary);
-  opacity: 0.4;
 }

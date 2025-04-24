@@ -1,4 +1,5 @@
-import { Pin } from 'lucide-react';
+import { PinOff } from 'lucide-react';
+import pinIcon from '../../../public/icons/pin.svg';
 import styles from './styles.module.css';
 
 type NoteCardProps = {
@@ -24,7 +25,8 @@ export function NoteCard({
           className={`${styles.pinButton} ${hasPin ? styles.pinned : ''}`}
           aria-label={hasPin ? 'Unpin note' : 'Pin note'}
         >
-          <Pin size={20} />
+          {hasPin && <img src={pinIcon} alt='Pin Icon' />}
+          {!hasPin && <PinOff size={20} />}
         </button>
       </div>
       <p className={styles.date}>{date}</p>
