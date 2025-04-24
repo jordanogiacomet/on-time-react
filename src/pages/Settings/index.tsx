@@ -1,14 +1,22 @@
 import { Fragment } from 'react/jsx-runtime';
 import { Container } from '../../components/Container';
-
 import styles from './styles.module.css';
 import { ArrowLeft } from 'lucide-react';
 import { RouterLink } from '../../components/RouterLink';
 import { ToggleSwitch } from '../../components/ToggleSwitch';
-import { useState } from 'react';
+import { useSettingsContext } from '../../contexts/SettingsContext/useSettingsContext';
+import { SettingsActionTypes } from '../../contexts/SettingsContext/settingsActions';
 
 export function Settings() {
-  const [bar, setBar] = useState<boolean>(false);
+  const { state, dispatch } = useSettingsContext();
+
+  function toggleAudio() {
+    dispatch({ type: SettingsActionTypes.TOGGLE_AUDIO });
+  }
+
+  function toggleNotificationBar() {
+    dispatch({ type: SettingsActionTypes.TOGGLE_NOTIFICATION_BAR });
+  }
 
   return (
     <Fragment>
@@ -26,12 +34,18 @@ export function Settings() {
             <div className={styles.item}>
               <p className={styles.settingsOption}>Notification</p>
               <div className={styles.itemContent}>
-                <p>Audio</p>
+                <ToggleSwitch
+                  id='audioInput'
+                  label='Audio'
+                  checked={state.audioEnabled}
+                  onChange={toggleAudio}
+                  className={styles.bar}
+                />
                 <ToggleSwitch
                   id='notificationInput'
                   label='Notification Bar'
-                  checked={bar}
-                  onChange={setBar}
+                  checked={state.notificationBar}
+                  onChange={toggleNotificationBar}
                   className={styles.bar}
                 />
               </div>

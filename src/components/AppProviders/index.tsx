@@ -1,6 +1,7 @@
 import React from 'react';
 import { ScheduleContextProvider } from '../../contexts/ScheduleContext/ScheduleContextProvider';
 import { NoteContextProvider } from '../../contexts/NoteContext/NoteContextProvider';
+import { SettingsContextProvider } from '../../contexts/SettingsContext/SettingsContextProvider';
 
 type AppProvidersProps = {
   children: React.ReactNode;
@@ -8,8 +9,10 @@ type AppProvidersProps = {
 
 export function AppProviders({ children }: AppProvidersProps) {
   return (
-    <ScheduleContextProvider>
-      <NoteContextProvider>{children}</NoteContextProvider>
-    </ScheduleContextProvider>
+    <SettingsContextProvider>
+      <ScheduleContextProvider>
+        <NoteContextProvider>{children}</NoteContextProvider>
+      </ScheduleContextProvider>
+    </SettingsContextProvider>
   );
 }
