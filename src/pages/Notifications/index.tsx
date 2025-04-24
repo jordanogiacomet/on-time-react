@@ -4,8 +4,12 @@ import { Container } from '../../components/Container';
 import styles from './styles.module.css';
 import { RouterLink } from '../../components/RouterLink';
 import { ArrowLeft } from 'lucide-react';
+import { useScheduleContext } from '../../contexts/ScheduleContext/useScheduleContext';
+import { formatDate } from '../../utils/formaDate';
 
 export function Notifications() {
+  const { state } = useScheduleContext();
+
   return (
     <Fragment>
       <Container>
@@ -19,18 +23,12 @@ export function Notifications() {
             </nav>
           </header>
           <div className={styles.notificationItensContainer}>
-            <div className={styles.item}>
-              <p>Dinner with Anna</p>
-              <span>20 Sep 2021 08:00 PM</span>
-            </div>
-            <div className={styles.item}>
-              <p>Pay House Tax</p>
-              <span>26 Sep 2021 08:00 AM</span>
-            </div>
-            <div className={styles.item}>
-              <p>Make A New Proposal</p>
-              <span>20 Sep 2021 08:00 PM</span>
-            </div>
+            {state.schedules.map(schedule => (
+              <div key={schedule.id} className={styles.item}>
+                <p>{schedule.title}</p>
+                <span>{formatDate(schedule.start, 'dd MMM yyyy hh:mm a')}</span>
+              </div>
+            ))}
           </div>
         </div>
       </Container>

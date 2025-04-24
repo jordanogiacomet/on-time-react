@@ -9,10 +9,15 @@ import { NoteActionTypes } from '../../contexts/NoteContext/noteActions';
 
 export function NotesSection() {
   const { state, dispatch } = useNoteContext();
-  const notesLength = state.notes.length;
+  const pinnedNotes = state.notes.filter(n => n.pin);
+  const otherNotes = state.notes.filter(n => !n.pin);
+  const allNotes = [...pinnedNotes, ...otherNotes];
 
   function togglePin(id: number) {
-    dispatch({ type: NoteActionTypes.TOGGLE_PIN, payload: { id } });
+    dispatch({
+      type: NoteActionTypes.TOGGLE_PIN,
+      payload: { id },
+    });
   }
 
   return (
@@ -26,19 +31,17 @@ export function NotesSection() {
             id='searchInput'
           />
         </TextInput.Root>
-        {state.notes.map(note => (
+        {allNotes.map(note => (
           <NoteCard
             key={note.id}
-            onTogglePin={() => togglePin(note.id)}
-            hasPin={note.pin}
             description={note.description}
             date={note.dateFormatted}
+            hasPin={note.pin}
+            onTogglePin={() => togglePin(note.id)}
           />
         ))}
-        {notesLength <= 0 && (
-          <div className={styles.messageContainer}>
-            <p className={styles.message}>You Didn’t Have Any Notes.</p>
-          </div>
+        {allNotes.length === 0 && (
+          <p className={styles.message}>You Didn’t Have Any Notes.</p>
         )}
       </div>
       <FloatingActionButton />

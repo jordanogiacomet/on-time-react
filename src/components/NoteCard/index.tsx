@@ -18,12 +18,13 @@ export function NoteCard({
     <div className={styles.noteCardContainer}>
       <div className={styles.noteCardInternalContainer}>
         <p className={styles.description}>{description}</p>
+
         <button
           onClick={onTogglePin}
-          className={`${styles.pinButton} ${hasPin ? '' : styles.hiddenPin}`}
+          className={`${styles.pinButton} ${hasPin ? styles.pinned : ''}`}
           aria-label={hasPin ? 'Unpin note' : 'Pin note'}
         >
-          {hasPin && <Pin size={15} />}
+          <Pin size={20} />
         </button>
       </div>
       <p className={styles.date}>{date}</p>

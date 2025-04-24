@@ -6,6 +6,7 @@
   flex-direction: column;
   gap: 2rem;
   font-weight: lighter;
+  position: relative;
 }
 
 .description {
@@ -23,18 +24,23 @@
 }
 
 .pinButton {
+  position: absolute;
+  top: 1.4rem;
+  right: 1.4rem;
   background: transparent;
   border: none;
+  padding: 0.25rem;
+  opacity: 0;
+  transition: opacity 0.2s;
   cursor: pointer;
-  padding: 0;
-  width: 1.5rem;
-  height: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+}
+
+.pinButton.pinned {
+  opacity: 1;
   color: var(--text-primary);
 }
 
-.hiddenPin {
-  visibility: hidden;
+.noteCardContainer:hover .pinButton:not(.pinned) {
+  color: var(--text-primary);
+  opacity: 0.4;
 }
