@@ -28,6 +28,7 @@ export function Settings() {
               <div className={styles.itemContent}>
                 <p>Audio</p>
                 <ToggleSwitch
+                  id='notificationInput'
                   label='Notification Bar'
                   checked={bar}
                   onChange={setBar}
