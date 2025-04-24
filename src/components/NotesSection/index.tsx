@@ -83,6 +83,11 @@ export function NotesSection() {
             ))}
           </div>
         )}
+        {filtered.length === 0 && (
+          <div className={styles.messageContainer}>
+            <p className={styles.message}>No notes found.</p>
+          </div>
+        )}
       </div>
       <FloatingActionButton />
     </Fragment>

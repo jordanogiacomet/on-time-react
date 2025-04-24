@@ -1,0 +1,94 @@
+.helpNav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-primary);
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.helpNav .menuLink:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.menuLink {
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.6rem;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.markdown {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem 0 4rem;
+  color: var(--text-primary);
+  line-height: 1.6; /* slightly tighter */
+  font-size: 1.4rem; /* reduced from 1.6rem */
+}
+
+.markdown hr {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 2rem 0;
+}
+
+.markdown h1 {
+  font-size: 2.2rem; /* reduced from 2.4rem */
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+.markdown h2 {
+  font-size: 1.8rem; /* reduced from 2rem */
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.markdown h3 {
+  font-size: 1.4rem; /* reduced from 1.6rem */
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.markdown ul,
+.markdown ol {
+  margin: 1rem 0 1.5rem 1.5rem;
+}
+.markdown li {
+  margin-bottom: 0.5rem;
+}
+
+.markdown table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--text-secondary);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 1.5rem 0;
+}
+.markdown th {
+  background: rgba(255, 255, 255, 0.05);
+}
+.markdown th,
+.markdown td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.markdown tr:last-child td {
+  border-bottom: none;
+}
+
+.markdown code {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.9rem; /* reduced from 1rem */
+}

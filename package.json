@@ -1,8 +1,12 @@
 {
   "name": "on-time-react",
-  "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "author": "Jordano Giacomet Tomazoni",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jordanogiacomet/on-time-react.git"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -15,8 +19,10 @@
     "react": "^19.0.0",
     "react-calendar": "^5.1.0",
     "react-dom": "^19.0.0",
+    "react-markdown": "^10.1.0",
     "react-router-dom": "^6.30.0",
-    "react-toastify": "^11.0.5"
+    "react-toastify": "^11.0.5",
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",
