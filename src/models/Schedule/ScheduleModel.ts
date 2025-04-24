@@ -1,4 +1,4 @@
-export type ReminderOffset = 5 | 10 | 15;
+export type ReminderOffset = 1 | 10 | 15;
 
 export type ReminderUnit = 'minutes';
 
