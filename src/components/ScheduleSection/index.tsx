@@ -7,15 +7,15 @@ import { FloatingActionButton } from '../FloatingActionButton';
 import { useScheduleContext } from '../../contexts/ScheduleContext/useScheduleContext';
 import { formatTimeRange } from '../../utils/formatTimeRange';
 import { ScheduleActionTypes } from '../../contexts/ScheduleContext/scheduleActions';
-import { isSameDay } from 'date-fns';
+import { compareAsc, isSameDay } from 'date-fns';
 
 export function ScheduleSection() {
   const { state, dispatch } = useScheduleContext();
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
 
-  const filteredPerDay = state.schedules.filter(schedule =>
-    isSameDay(new Date(schedule.start), selectedDate),
-  );
+  const filteredPerDay = state.schedules
+    .filter(schedule => isSameDay(new Date(schedule.start), selectedDate))
+    .sort((a, b) => compareAsc(new Date(a.start), new Date(b.start)));
 
   const filteredLength = filteredPerDay.length;
 
