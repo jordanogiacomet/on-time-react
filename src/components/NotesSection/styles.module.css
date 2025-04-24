@@ -17,3 +17,13 @@
   border-radius: 12px;
   margin: 2rem 3.5rem;
 }
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.group h4 {
+  font-size: 1.4rem;
+}

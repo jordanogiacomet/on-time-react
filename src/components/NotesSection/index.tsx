@@ -7,12 +7,22 @@ import styles from './styles.module.css';
 import { useNoteContext } from '../../contexts/NoteContext/useNoteContext';
 import { NoteActionTypes } from '../../contexts/NoteContext/noteActions';
 import { showMessage } from '../../adapters/showMessage';
+import { useState } from 'react';
+import { formatDate } from '../../utils/formaDate';
 
 export function NotesSection() {
   const { state, dispatch } = useNoteContext();
-  const pinnedNotes = state.notes.filter(n => n.pin);
-  const otherNotes = state.notes.filter(n => !n.pin);
-  const allNotes = [...pinnedNotes, ...otherNotes];
+  const [query, setQuery] = useState<string>('');
+
+  const filtered = state.notes.filter(
+    note =>
+      (note.description.toLowerCase().includes(query) ||
+        note.title?.toLowerCase().includes(query)) ??
+      false,
+  );
+
+  const pinnedNotes = filtered.filter(note => note.pin);
+  const otherNotes = filtered.filter(note => !note.pin);
 
   function togglePin(id: number) {
     showMessage.dismiss();
@@ -38,22 +48,40 @@ export function NotesSection() {
         <TextInput.Root>
           <TextInput.Icon icon={Search} />
           <TextInput.Element
+            value={query}
+            onChange={e => setQuery(e.target.value)}
             type='search'
             placeholder='Search'
             id='searchInput'
           />
         </TextInput.Root>
-        {allNotes.map(note => (
-          <NoteCard
-            key={note.id}
-            description={note.description}
-            date={note.dateFormatted}
-            hasPin={note.pin}
-            onTogglePin={() => togglePin(note.id)}
-          />
-        ))}
-        {allNotes.length === 0 && (
-          <p className={styles.message}>You Didn’t Have Any Notes.</p>
+        {pinnedNotes.length > 0 && (
+          <div className={styles.group}>
+            <h4>Pinned</h4>
+            {pinnedNotes.map(note => (
+              <NoteCard
+                key={note.id}
+                description={note.description}
+                date={formatDate(note.date, 'dd/MM/yyyy')}
+                hasPin
+                onTogglePin={() => togglePin(note.id)}
+              />
+            ))}
+          </div>
+        )}
+        {otherNotes.length > 0 && (
+          <div className={styles.group}>
+            <h4>Others</h4>
+            {otherNotes.map(note => (
+              <NoteCard
+                key={note.id}
+                description={note.description}
+                date={formatDate(note.date, 'dd/MM/yyyy')}
+                hasPin={false}
+                onTogglePin={() => togglePin(note.id)}
+              />
+            ))}
+          </div>
         )}
       </div>
       <FloatingActionButton />
