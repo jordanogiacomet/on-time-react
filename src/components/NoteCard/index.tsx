@@ -1,5 +1,5 @@
 import { PinOff } from 'lucide-react';
-import pinIcon from '../../../public/icons/pin.svg';
+import pinIcon from '../../icons/pin.svg';
 import styles from './styles.module.css';
 
 type NoteCardProps = {

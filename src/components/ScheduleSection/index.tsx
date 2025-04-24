@@ -7,12 +7,17 @@ import { FloatingActionButton } from '../FloatingActionButton';
 import { useScheduleContext } from '../../contexts/ScheduleContext/useScheduleContext';
 import { formatTimeRange } from '../../utils/formatTimeRange';
 import { ScheduleActionTypes } from '../../contexts/ScheduleContext/scheduleActions';
+import { isSameDay } from 'date-fns';
 
 export function ScheduleSection() {
   const { state, dispatch } = useScheduleContext();
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
 
-  const schedulesLength = state.schedules.length;
+  const filteredPerDay = state.schedules.filter(schedule =>
+    isSameDay(new Date(schedule.start), selectedDate),
+  );
+
+  const filteredLength = filteredPerDay.length;
 
   function handleToggle(id: number) {
     dispatch({
@@ -25,9 +30,9 @@ export function ScheduleSection() {
     <Fragment>
       <Calendar value={selectedDate} onChange={setSelectedDate} />
       <h2 className={styles.scheduleHeading}>Schedule</h2>
-      {schedulesLength > 0 && (
+      {filteredLength > 0 && (
         <div className={styles.scheduleCardsContainer}>
-          {state.schedules.map(schedule => (
+          {filteredPerDay.map(schedule => (
             <ScheduleCard
               key={schedule.id}
               disabled={schedule.completed}
@@ -40,7 +45,7 @@ export function ScheduleSection() {
           ))}
         </div>
       )}
-      {schedulesLength <= 0 && (
+      {filteredLength <= 0 && (
         <div className={styles.messageContainer}>
           <p className={styles.message}>You Didn’t Have Any Schedule.</p>
         </div>
