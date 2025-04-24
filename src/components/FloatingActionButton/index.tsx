@@ -9,7 +9,6 @@ export function FloatingActionButton() {
 
   return (
     <div className={`${styles.fabContainer} ${open ? styles.open : ''}`}>
-      {/* botões filhos */}
       <Link to='/notes/new' className={styles.fabChild}>
         <FileText size={20} />
         <span className={styles.fabLabel}>Note</span>
@@ -19,7 +18,6 @@ export function FloatingActionButton() {
         <span className={styles.fabLabel}>Schedule</span>
       </Link>
 
-      {/* FAB principal */}
       <button
         className={styles.fab}
         onClick={() => setOpen(o => !o)}
