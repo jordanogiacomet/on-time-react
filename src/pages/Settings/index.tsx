@@ -1,7 +1,7 @@
 import { Fragment } from 'react/jsx-runtime';
 import { Container } from '../../components/Container';
 import styles from './styles.module.css';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, MoonIcon, SunIcon } from 'lucide-react';
 import { RouterLink } from '../../components/RouterLink';
 import { ToggleSwitch } from '../../components/ToggleSwitch';
 import { useSettingsContext } from '../../contexts/SettingsContext/useSettingsContext';
@@ -16,6 +16,10 @@ export function Settings() {
 
   function toggleNotificationBar() {
     dispatch({ type: SettingsActionTypes.TOGGLE_NOTIFICATION_BAR });
+  }
+
+  function toggleTheme() {
+    dispatch({ type: SettingsActionTypes.TOGGLE_THEME });
   }
 
   return (
@@ -48,6 +52,18 @@ export function Settings() {
                   onChange={toggleNotificationBar}
                   className={styles.bar}
                 />
+                <button
+                  type='button'
+                  onClick={toggleTheme}
+                  className={styles.themeButton}
+                >
+                  Theme{' '}
+                  {state.theme === 'dark' ? (
+                    <SunIcon size={25} />
+                  ) : (
+                    <MoonIcon size={25} />
+                  )}
+                </button>
               </div>
             </div>
             <div className={styles.item}>

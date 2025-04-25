@@ -37,10 +37,35 @@
 
 /* Tema claro (se quiser) */
 [data-theme='light'] {
-  --bg-default: #f3f3f3;
+  /* Gradiente de fundo */
+  --bg-gradient-start: #fafafa;
+  --bg-gradient-end: #f0f0f0;
+  --bg-default: var(--bg-gradient-start);
+
+  /* Superfícies */
   --surface-card: #ffffff;
-  --surface-alt: #e5e5e5;
-  --text-primary: #222222;
+  --surface-alt: #f7f7f7;
+  --bg-active: #eeeeee;
+  --bg-selected-day: #e0d7fe; /* lilás pálido */
+  --bg-card-active: #d6bbfc; /* lilás mais vivo */
+  --bg-card-completed: #eceaea;
+  --bg-input: #ffffff;
+  --bg-card-bottom: #f2f2f2;
+
+  /* Cores primárias — remanescem da paleta roxa */
+  --color-primary: #5c3d91; /* roxo médio */
+  --color-primary-light: #8f6aec; /* roxo claro */
+
+  /* Accent para erros/alertas */
+  --color-accent: #d42f5e; /* rosa avermelhado */
+
+  /* Texto */
+  --text-primary: #333333;
   --text-secondary: #666666;
-  --color-primary: #5c4fa7;
+  --text-placeholder: #999999;
+  --border-notification: rgba(0, 0, 0, 0.1);
+
+  /* Espaçamentos e transições (mesmos valores do dark) */
+  --radius: 5px;
+  --transition: 0.3s;
 }

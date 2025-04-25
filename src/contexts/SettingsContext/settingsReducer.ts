@@ -12,6 +12,12 @@ export function settingsReducer(
     case SettingsActionTypes.TOGGLE_NOTIFICATION_BAR: {
       return { ...state, notificationBar: !state.notificationBar };
     }
+    case SettingsActionTypes.TOGGLE_THEME: {
+      return {
+        ...state,
+        theme: state.theme === 'dark' ? 'light' : 'dark',
+      };
+    }
   }
   return state;
 }
